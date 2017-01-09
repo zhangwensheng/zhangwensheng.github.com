@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>index</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <style>
+        html,body{
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            margin: 0;
+        }
+        .a{
+            width:180px;
+            background-color: red;
+        }
+        .b{
+            width:600px;
+            background-color: green;
+        }
+        .c{
+            width:180px;
+            background-color: blue; 
+        }
+        div{
+            float: left;
+            height: 90%;
+        }
+        p {
+            text-align: CENTER;
+        }
+        .btn{
+            position: relative;
+            top: 3rem;
+            background: #67bcf8;
+            padding: 1rem;
+            text-decoration: none;
+            color: white;
+            border-radius: .3rem;
+        }
+        .container{
+            display: flex;
+            width: 100%;
+        }
+
+        .item1{
+            order: 1;
+        }
+        .item2{
+            order: 2;
+        }
+        .item3{
+            order: 3;
+        }
+        .item_grow{
+            flex-grow:1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class = "container" name = "ABC">
+        <div class = "a item1"></div>
+        <div class = "b item2"></div>
+        <div class = "c item3"></div>
+    </div>
+    <div class = "container" name = "BAC">
+        <div class = "a item2"></div>
+        <div class = "b item1"></div>
+        <div class = "c item3"></div>
+    </div>
+    <div class = "container" name = "CBA">
+        <div class = "a item3"></div>
+        <div class = "b item2 item_grow"></div>
+        <div class = "c item1"></div>
+    </div>
+</body>
+
+</html>
