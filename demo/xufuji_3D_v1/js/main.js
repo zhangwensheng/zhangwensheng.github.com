@@ -104,19 +104,19 @@ function initTargets() {
     target_in_element.push(target);
     target_in_elements.push(target_in_element);
 
-    target = new Target();
-    target.position = new THREE.Vector3(20, -450, -100);
-    target.find_textures = loadTexture('textures/ninja/11.png');
-    target.hide_textures = loadTexture('textures/ninja/22.png');
-    target_in_element.push(target);
-    target_in_elements.push(target_in_element);
+    // target = new Target();
+    // target.position = new THREE.Vector3(20, -450, -100);
+    // target.find_textures = loadTexture('textures/ninja/11.png');
+    // target.hide_textures = loadTexture('textures/ninja/22.png');
+    // target_in_element.push(target);
+    // target_in_elements.push(target_in_element);
 
-    target = new Target();
-    target.position = new THREE.Vector3(20, -400, -150);
-    target.find_textures = loadTexture('textures/ninja/33.png');
-    target.hide_textures = loadTexture('textures/ninja/44.png');
-    target_in_element.push(target);
-    target_in_elements.push(target_in_element);
+    // target = new Target();
+    // target.position = new THREE.Vector3(20, -400, -150);
+    // target.find_textures = loadTexture('textures/ninja/33.png');
+    // target.hide_textures = loadTexture('textures/ninja/44.png');
+    // target_in_element.push(target);
+    // target_in_elements.push(target_in_element);
 }
 
 var Global_mesh_1 = null;
