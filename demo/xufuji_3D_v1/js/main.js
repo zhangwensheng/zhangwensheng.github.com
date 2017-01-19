@@ -177,12 +177,12 @@ function updateTargets() {
     }
     //Global_mesh_1.position.set(50,130,220);
     //Global_mesh_1.rotation.set(-2.9050015,0.088147589,3.1203704);
-    Global_mesh_1.position.set(-374,130,74);
-    Global_mesh_1.rotation.set(3.03226577,1.2940122,-2.992477);
+    // Global_mesh_1.position.set(-374,130,74);
+    // Global_mesh_1.rotation.set(3.03226577,1.2940122,-2.992477);
     //Global_mesh_2.position.set(-284,-32,170);
     //Global_mesh_2.rotation.set(-3.1230311,0.8470734,2.784597);
-    Global_mesh_2.position.set(-192,-32,-313);
-    Global_mesh_2.rotation.set(-0.8359311,1.1623857,0.4649231);
+    // Global_mesh_2.position.set(-192,-32,-313);
+    // Global_mesh_2.rotation.set(-0.8359311,1.1623857,0.4649231);
 
     targets[4].position.set(205, -93, 20);
     targets[3].position.set(164,12,38);
@@ -1027,7 +1027,7 @@ function waitWechat() {
         init();
         // Kick off animation loop
         animate();
-        sprAnimate();
+        // sprAnimate();
     } else {
         requestAnimationFrame(waitWechat);
     }
