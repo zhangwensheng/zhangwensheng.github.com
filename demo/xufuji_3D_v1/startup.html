@@ -1,0 +1,532 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>徐福记浓情99全景</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script src="lib\jquery-3.1.0.min.js"></script>
+    <script type="text/javascript">
+        (function(design, selectors){
+        var width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        var scale = width / design;
+
+        var style = '<style type="text/css">';
+
+        for(var i = 0; i < selectors.length; i++){
+          style += selectors[i].selector + '{'
+                + '     -moz-transform-origin: ' + selectors[i].origin + ';'
+                + '  -webkit-transform-origin: ' + selectors[i].origin + ';'
+                + '          transform-origin: ' + selectors[i].origin + ';'
+                + '     -moz-transform: scale(' + scale + ');'
+                + '  -webkit-transform: scale(' + scale + ');'
+                + '          transform: scale(' + scale + ');'
+                + '}';
+        }
+
+        style += '</style>';
+
+        document.open();
+        document.write(style);
+        document.close();
+        })(730, [{"selector": ".popBox", "origin": "50% 50% 0"}]);
+    </script>
+    <script>
+        var system = {
+            wx_id : '2321321',//用户微信openid
+            nick_name : 'sdsadsad',//用户微信名
+            share_open_id : '12321321',//分享者的openId
+            share_nick_name : 'aaa',//分享者的微信名
+            share_url : 'http://www.ulh5.com',//分享链接
+            share_title : 'sadsa',//分享标题
+            share_title_end : 'http://wx.qlogo.cn/mmopen/g3MonUZtNHkdmzicIlibx6iaFqAc56vxLSUfpb6n5WKSYVY0ChQKkiaJSgQ1dZuTOgvLLrhJbERQQ4eMsv84eavHiaiceqxibJxCfHe/0',//分享标题
+            share_desc : 'ewqwqe',//分享描述
+            share_desc_end : 'wqeqwewq',//分享描述
+            share_icon : 'http://wx.qlogo.cn/mmopen/g3MonUZtNHkdmzicIlibx6iaFqAc56vxLSUfpb6n5WKSYVY0ChQKkiaJSgQ1dZuTOgvLLrhJbERQQ4eMsv84eavHiaiceqxibJxCfHe/0',//分享icon1
+        }
+    </script>
+</head>
+
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link rel="stylesheet" type="text/css" href="./css/popStyle.css">
+<style type="text/css">
+    @media screen and (max-height: 667px) {
+        .phb_my{
+            top: 3.7em !important;
+        }
+        .phbContent{
+            top: 7em !important;
+        }
+    }
+    @media screen and (max-height: 568px) {
+        .phb_my{
+            top: 1.5em !important;
+        }
+        .phbContent{
+            top: 3.7em !important;
+        }
+    }
+</style>
+
+<body> 
+    <div>
+        <audio id="background-music" src="audios\bass.mp3"></audio>
+        <div id="loading-page" style="visibility:visible">
+            <div class="page screen">
+                <img src="textures/loading/bg.jpg" class="loading-bg">
+                <img src="textures/loading/line_bg.png" class="loading-line-bg">
+                <img src="textures/loading/cow.png" class="loading-cow">
+                <img src="textures/loading/line_bg1.png" class="loading-line-bg-1">
+<!--                 <img src="textures/loading/cow_1.png" class="loading-cow-1"> -->
+                <div class="progress-text">0%</div>
+            </div>
+        </div>
+        <div id="start-page" style="visibility:hidden">
+            <div class="page screen">
+                <img src="textures/page001/loadingBg.png" style="width: 100%; height: auto; position: fixed;right: 0;top: 0;left: 0;" id="beginPage">
+                <img src="textures/popRes/img/logo.png" style="position:fixed;left:10px;top:10px;width:25%;z-Index:0;" class="logo_img">
+                <div id="start-button" style="visibility: hidden">
+                    <div>
+                        <img src="textures\page001\choose.jpg" style="width: 30%;height: auto;position: fixed;left: 35%;bottom: 48%;display:none;">
+
+                        <img id='button-360' src="textures\page001\button-360.png" style="width: 30%;height: auto;position: fixed;left: 69%;bottom: 44%;" onclick="selected_panorama(this)">
+
+                        <img id='button-360' src="textures\page001\button-rank.png" style="width: 30%;height: auto;position: fixed;left: 69%;bottom: 33%;" onclick="showRank(this,'1')">
+
+                        <p style="display:block;position: fixed;left: 69%;bottom: 22%;width:100px;height:18px;text-align:center;line-height:18px;text-decoration:underline;" class="info_btn">活动详情</p>
+
+
+                        <!-- <img id='button-vr' src="textures\page001\button-vr.png" style="width: 30%;height: auto;position: fixed;right: 20%;bottom: 0%;display:none;" onclick="selected_vr(this)"> -->
+                    </div>
+                    <div>
+                        <img id="start-page-rank-bt" src="textures\page001\button-ranking.png" style="width: 20%;height: auto;position: fixed;left: 40%;bottom: 28%;display:none;" onclick="showRank(this)">
+                    </div>
+                </div>
+                <div id="loading">
+                    <div>
+                        <img class="rotateIcon" src="textures\page001\loading.png" style="width: 8%; height: auto;position: fixed;bottom: 48%;left: 45%;">
+                    </div>
+                    <div id="progress" style="position: fixed;left: 58%;bottom: 48%;font-size: 20px">
+                        0%
+                    </div>
+                    <div>
+                        <img src="textures\page001\loading_word.jpg" style="width: 70%;height: auto;position: fixed;left: 15%;bottom: 40%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="tutorial-page" style="visibility:hidden">
+            <div class="page screen" style="width: 80%; left: 10%;">
+                <table style="width:100%;height: 100%;">
+                    <tr>
+                        <td style="text-align: center;">
+                            <img class="tutorial" src="textures\page001\how_to_play.jpg">
+                            <img id='button-tutorial' class='button-tutorial btn-two' src="textures\page001\know_how_to_play.png" onclick="checkHowToPlay(1)">
+                            <img id="button-playGifShow" class="button-playGifShow" src="textures\page001\play_show.png" onclick="playGifShow();">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="end-page" style="visibility:hidden">
+            <div class="page screen" style="background:black;opacity:0.9;">
+                <!--<table style="width:100%;height: 100%;">
+                    <tr>
+                        <td style="text-align: center;">
+                            <img src="textures\page003\ribbon.png" class="end-page-background">
+                        </td>
+                    </tr>
+                </table>-->
+            </div>
+            <div class="screen" style="width: 100%; height: auto; position: fixed;top: 22%;">
+                <table style="width:100%;height: 100%;">
+                    <tr style="height: 100%;">
+                        <td style="text-align: center;">
+                            <div style="width:100%;height:100%;">
+                                <img id="end-page-rank-bt" class="end-page-main" src="textures\challenge_success\sucess.png">
+                                <span class="challenge-success">好腻害！挑战用时：<br/>
+                                    81秒！<br/>
+                                当前排名第1!<br/>浓99红包已为你包好<br/>赶紧挑选一个吧！</span>
+                            </div>
+                            <div class="box-gift">
+                                <img id="receiveRedPacket1" src="textures\challenge_success\sucessRedbag.png">
+                                <img id="receiveRedPacket2" src="textures\challenge_success\jingdongyouhui.png">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="end-tail">（数量有限,领完即止）</div>
+            </div>
+            <div id="invite" class="page screen" style="width: 100%; height: 100%;background-color: rgba(0, 0, 0, 0.7);visibility:hidden;">
+            <img src="textures\close.png" style="width: 10%;height: auto;position: fixed;right: 1%;top: 1%;" onclick="hideInvite()">
+            <table style="width:100%;height: 100%;">
+                <tr>
+                    <td style="text-align: center;">
+                        <div style="vertical-align: middle;font-size: 24px;color: #FFFFFF;line-height: 200%;">
+                            邀请好友一起玩，
+                        </div>
+                        <div style="vertical-align: middle;font-size: 24px;color: #FFFFFF;line-height: 200%;">
+                            比比看谁更快噢！
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            </div>
+        </div>
+        <div id="end-page-1" style="display:none">
+            <div class="page screen" style="background:black;opacity:0.9;">
+            </div>
+            <div class="screen" style="width: 100%; height: auto; position: fixed;top: 22%;">
+                <table style="width:100%;height: 100%;">
+                    <tr style="height: 100%;">
+                        <td style="text-align: center;">
+                            <div style="width:100%;height:100%;">
+                                <img id="end-page-rank-bt" class="end-page-main" src="textures\challenge_success\success1.png">
+                                <span class="challenge-success">好腻害！挑战用时：<br/>81秒；当前排名第1<br/>浓99红包已为你包好<br/>赶紧抽选吧</span>
+                            </div>
+                            <div class="box-gift">
+                                <img id="playagain" style="top:-18%;width:45%;" src="textures\challenge_success\playagain.png" onclick="replay(this);">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="invite" class="page screen" style="width: 100%; height: 100%;background-color: rgba(0, 0, 0, 0.7);visibility:hidden;">
+                <img src="textures\close.png" style="width: 10%;height: auto;position: fixed;right: 1%;top: 1%;" onclick="hideInvite()">
+                <table style="width:100%;height: 100%;">
+                    <tr>
+                        <td style="text-align: center;">
+                            <div style="vertical-align: middle;font-size: 24px;color: #FFFFFF;line-height: 200%;">
+                                邀请好友一起玩，
+                            </div>
+                            <div style="vertical-align: middle;font-size: 24px;color: #FFFFFF;line-height: 200%;">
+                                比比看谁更快噢！
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="end-page-2" style="display:none">
+            <div class="page screen" style="background:black;opacity:0.9;">
+                <!--<table style="width:100%;height: 100%;">
+                    <tr>
+                        <td style="text-align: center;">
+                            <img src="textures\page003\ribbon.png" class="end-page-background">
+                        </td>
+                    </tr>
+                </table>-->
+            </div>
+            <div class="screen" style="width: 100%; height: auto; position: fixed;top: 22%;">
+                <table style="width:100%;height: 100%;">
+                    <tr style="height: 100%;">
+                        <td style="text-align: center;">
+                            <div style="width:100%;height:100%;">
+                                <img id="end-page-rank-bt" class="end-page-main" src="textures\challenge_success\sucess.png">
+                                <span class="challenge-success">好腻害！挑战用时：<br/>81秒；当前排名第1<br/>浓99红包已为你包好<br/>赶紧抽选吧</span>
+                            </div>
+                            <div class="box-gift">
+                                <img id="receiveRedPacket3" src="textures\challenge_success\jingdongyouhui.png">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="invite" class="page screen" style="width: 100%; height: 100%;background-color: rgba(0, 0, 0, 0.7);visibility:hidden;">
+            <img src="textures\close.png" style="width: 10%;height: auto;position: fixed;right: 1%;top: 1%;" onclick="hideInvite()">
+            <table style="width:100%;height: 100%;">
+                <tr>
+                    <td style="text-align: center;">
+                        <div style="vertical-align: middle;font-size: 24px;color: #FFFFFF;line-height: 200%;">
+                            邀请好友一起玩，
+                        </div>
+                        <div style="vertical-align: middle;font-size: 24px;color: #FFFFFF;line-height: 200%;">
+                            比比看谁更快噢！
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            </div>
+        </div>
+        <div id="congratulate_page" style="display:none;">
+            <div class="screen" style="width: 100%; height: auto; position: fixed;top: 46%;">
+                <img id="end-page-rank-bt" class="box-redpacket" src="textures\candy\congratulate.png">
+            </div>
+        </div>
+        <div id="redPacket_page" style="display:none;">
+            <div class="page screen" style="background:black;opacity:0.9;"></div>
+            <div class="screen" style="width: 100%; height: auto; position: fixed;top: 22%;">
+                <table style="width:100%;height: 100%;">
+                    <tr style="height: 100%;">
+                        <td style="text-align: center;">
+                            <div style="height:100%;">
+                                <img id="end-page-rank-bt1" class="box-redpacket" src="textures\red_packet\getRedbag.png">
+                                <span class="box-redpacket-money"></span></div>
+                            <div class="box-gift">
+                                <img id="replayId" src="textures\red_packet\button2.png" onclick="replay(this)">
+                            </div>
+                            <div class="box-gift">
+                                <img id="end-page-replay-bt"  style="margin-right: 61px;" src="textures\red_packet\button4.png" onclick="showRank(this,'2')">
+                                <img id="gotNow"  src="textures\red_packet\button1.png" >
+                            </div>
+                            <div class="box-gift">
+                                <img id="end-page-replay-bt" src="textures\red_packet\button3.png" onclick="shareFriend()">                  
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="share_page" style="display:none;">
+            <div class="page screen" style="background:black;opacity:0.9;"></div>
+            <div class="screen" style="height: 100%; position: fixed;">
+                <div class="share_page_txt">
+                    <img src="textures\red_packet\shareTxt.png" style="width:100%;">
+                </div>
+                <div class="share_page_niu">
+                    <img src="textures\red_packet\share.png" style="width:85%;">
+                </div>
+            </div>
+        </div>
+        <div id="rank-page" class="page screen" style="visibility:hidden;">
+            <div class="page screen" style="width: 70%;height: 70%;left: 17%;top: 20%;/*overflow: auto !important;*/">
+                <!-- <table id="rank-table" class="rank-table" cellpadding="10" border='0' style="/*overflow: auto !important;*/"> -->
+                <div class="phb_my">
+                  <span id="phb_my_site">你当前排名:10 </span>
+                </div>
+                <div id="phb_wrapper" class="phbContent">
+                    <ul>
+                        <!-- <li>
+                            <span>1</span>
+                            <span>
+                                <img src="" class="headImg">
+                            </span>
+                            <span>昵称5个字</span>
+                            <span>1000分</span> 
+                        </li> -->
+                    </ul>
+                </div>
+                </table>
+                <table style="width:100%;height: 100%;">
+                    <tr>
+                        <td style="text-align: center;">
+                            <img class="tutorial" src="textures/popRes/img/phbBg.jpg">
+                            <img class="tutorial_rank_list" src="textures/popRes/img/contentBg2.png">
+                            <img class="tutorial_bottom_niu" src="textures/popRes/img/bottom_niu.png">
+                            <img id='button-tutorial' class='button-tutorial phb_begin' src="textures/popRes/img/begin_play.png" onclick="checkHowToPlay(2)">
+                            <img id="button-back" class="button-back" src="textures/popRes/img/back_play.png" onclick="backBefore()">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <p class="rule_btn phb_rule_btn">挑战榜规则</p>
+            <!-- <div class="page screen" style="width: 80%;height: 90%;left: 10%;top: 5%;"> -->
+                <!-- <img src="textures\page003\ranking-topImage.png" style="position: fixed;width: 50%;left: 25%;top: 2%;"> -->
+                <!-- <div id="user-rank" class="end-text" style="width: 60%;height: 10%;position: fixed;right: 20%;bottom: 5px;text-align: center;">
+                    当前排名： <span id="rank-text-rank">-</span>
+                </div> -->
+                <!-- <div id="page-number" class="end-text-rank" style="width: 60%;height: 10%;position: fixed;right: 20%;bottom: 5px;text-align: center;font-size: 14px;">
+                    <span id="rank-text-current-page">1</span> / <span id="rank-text-total-page">1</span>
+                </div> -->
+                <!-- <img id="next_Rank_Page" src="textures\page003\page_right.png" style="width: 20%;height: auto;position: fixed;right: 5px;bottom: 5px;" onclick="nextRankPage()"> -->
+                <!-- <img id="last_Rank_Page" src="textures\page003\page_left.png" style="width: 20%;height: auto;position: fixed;left: 5px;bottom: 5px;" onclick="lastRankPage()"> -->
+                <!-- <img src="textures\page003\closeButton.png" style="width: 10%;height: auto;position: fixed;right: 5%;top: 5%;" onclick="hideRank()"> -->
+            <!-- </div> -->
+        </div>
+    </div>
+
+    <!-- 活动说明 -->
+    <div class="popParent rulePage" style="visibility:hidden">
+      <div class="popBox">
+        <div class="ruleContentParent commonContentParent">
+            <img src="textures/popRes/img/close.png" class="rule_close_btn">
+            <img src="textures/popRes/img/btn_scroll.png" class="rule-right-cow">
+            <div id="rule_wrapper" class="ruleContent">
+              <div>
+                <img src="textures/popRes/img/ruleContent.png" class="ruleContent_img">
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- 活动详情之三重好礼说明 -->
+    <div class="popParent rule-page-info-2" style="visibility:hidden">
+      <div class="popBox">
+        <div class="ruleContentParent-2 commonContentParent">
+            <img src="textures/popRes/img/close.png" class="rule-page-info-2-btn-close">
+            <img src="textures/popRes/img/btn_scroll.png" class="rule-right-cow">
+            <div id="id_wrapper_rpi_2" class="ruleContent">
+              <div>
+                <img src="textures/popRes/img/activity_info_about_1@2x.png" class="">
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 挑战榜规则 -->
+    <div class="popParent rulePage_1" style="z-index:100;visibility:hidden">
+      <div class="popBox">
+        <div class="ruleContentParent_1 commonContentParent">
+            <img src="textures/popRes/img/close.png" class="rule_close_btn_1">
+            <div class="ruleContentParent_bg"></div>
+            <div id="rule_wrapper_1" class="ruleContent_1">
+              <div>
+                <img src="textures/popRes/img/ruleContent_1.png" class="ruleContent_img">
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!--玩法示意-->
+    <div class="popParent playPage" style="z-index:100;visibility:hidden">
+        <div class="playGifPage commonContentParent">
+            <img src="textures/popRes/img/tips.gif">
+            <img id="button-back-show" class="button-back show-back" src="textures/popRes/img/back_play.png" onclick="hiddenPlayShow();">
+        </div>
+    </div>
+</body>
+<script>
+function isWeChat() {
+    var ua = navigator.userAgent.toLowerCase();
+    return /micromessenger/i.test(ua);
+}
+
+function log(str) {
+}
+var QueryString = function() {
+    // This function is anonymous, is executed immediately and
+    // the return value is assigned to QueryString!
+    var query_string = {};
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split("=");
+        // If first entry with this name
+        if (typeof query_string[pair[0]] === "undefined") {
+            query_string[pair[0]] = decodeURIComponent(pair[1]);
+            // If second entry with this name
+        } else if (typeof query_string[pair[0]] === "string") {
+            query_string[pair[0]] = [query_string[pair[0]], decodeURIComponent(pair[1])];
+            // If third or later entry with this name
+        } else {
+            query_string[pair[0]].push(decodeURIComponent(pair[1]));
+        }
+    }
+    return query_string;
+}();
+var key = QueryString.key;
+
+var wechat_nickname = "test";
+var wechat_head_img_url = "";
+var wechat_openid = '001122334455';
+var wechat_ready = true;//临时改成 true
+function isCorrectWeChatOpenID() {
+    return wechat_openid && wechat_openid != "" && wechat_openid != "";
+}
+</script>
+
+<script>
+/*
+ * Debug parameters.
+ */
+WebVRConfig = {
+    BUFFER_SCALE: 0.5,
+};
+</script>
+<!--A polyfill for Promises. Needed for IE and Edge.-->
+<!--<script src="node_modules/es6-promise/dist/es6-promise.js"></script>-->
+<!--three.js 3d library-->
+<script src="lib/three.js"></script>
+<!--VRControls.js acquires positional information from connected VR devices and applies the transformations to a three.js camera object.-->
+<script src="lib/VRControls.js"></script>
+<!--VREffect.js handles stereo camera setup and rendering.-->
+<script src="lib/VREffect.js"></script>
+<!--A polyfill for WebVR using the Device{Motion,Orientation}Event API.-->
+<script src="lib/webvr-polyfill.js"></script>
+<!--Helps enter and exit VR mode, provides best practices while in VR.-->
+<script src="lib/webvr-manager.js"></script>
+
+<script src="lib/Tween.js"></script>
+<script src="lib/iscroll.js"></script>
+
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="js/tool.js" charset="UTF-8"></script>
+
+<script src="js/fun.js"></script>
+<script src="js/fun1.js"></script>
+<script src="js/index.js"></script>
+<script src="js/main.js"></script>
+<script src="js/phb.js"></script>
+
+<div id="deviceOption" style="display:none;">
+    <img class="btn-gravity" src="textures/candy/gravity.png">
+    <img class="btn-screenMove" src="textures/candy/screenMove.png">
+</div>
+<script>
+    var getNowUrl ="";
+    $(".btn-gravity").on('click',function(){device="gravity";$("#deviceOption").remove();});
+    $(".btn-screenMove").on('click',function(){device="screenMove";$("#deviceOption").remove();});
+
+    //门店红包事件
+    $("#receiveRedPacket1").on('click',function(){
+        //门店接口
+        $.post('http://late.latehuiwan.com/lg99/index.php/Home/Index/getWechat',{"data":""}, function(data){
+                getNowUrl = data.url;
+                $(".box-redpacket-money").html(data.price);//修改红包数字代码
+                $("#end-page").hide();
+                $("#redPacket_page").show();
+        });
+        $("#end-page").hide();
+        $("#redPacket_page").show();
+        $("#redPacket_page").css({"visibility":"visible"});
+    });
+
+     //京东红包事件
+    $("#receiveRedPacket2").on('click',function(){
+         // window.location.href = "http://www.jd.com";
+         $.post('http://late.latehuiwan.com/lg99/index.php/Home/Index/getJd',{"data":""}, function(data){
+            window.location.href = data;//"http://www.jd.com";
+        });
+    });
+
+    //只剩下京东红包事件
+    $("#receiveRedPacket3").on('click',function(){
+         // window.location.href = "http://www.jd.com";
+         $.post('http://late.latehuiwan.com/lg99/index.php/Home/Index/getJd',{"data":""}, function(data){
+            window.location.href = data;//"http://www.jd.com";
+        });
+    });
+
+    //马上领取事件
+    $("#gotNow").on('click',function(){
+        if(getNowUrl != ""){
+            window.location.href = getNowUrl;
+        }else{
+            $("#end-page-1").show();
+        }
+    });
+
+    //玩法演示页
+    $(".playPage").on('click',function(){
+        $(".playPage").css({"visibility":"hidden"});
+    });
+
+    if(/iPad|iPhone|iPod/.test(navigator.platform)){
+        device = "gravity";
+        $("#deviceOption").remove();
+    }
+    $("#share_page").on('click',function(){
+       $(this).hide();
+    });
+
+    // //第二次进入
+    // function(){
+
+    // }
+</script>
+</html>

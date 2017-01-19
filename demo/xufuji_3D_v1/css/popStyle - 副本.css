@@ -1,0 +1,239 @@
+.popParent{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+}
+.popBox{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    /* margin: 0 auto; */
+    /* border: 1px solid red; */
+}
+.commonContentParent{
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    left: 0;
+    top: 10%;
+}
+
+
+.popBox>div>img{
+    position: absolute;
+}
+.hide{
+    display: none;
+}
+/*活动详情*/
+.ruleContentParent{
+  background:url("http://late.latehuiwan.com/lg99/Public/Home/textures/popRes/img/contentBg1.png") no-repeat;
+  background-size: 100% auto;
+}
+.rule_close_btn {
+    top: 3%;
+    right: 2%;
+    width: 13%;
+}
+.ruleContent{
+    width: 70%;
+    height: 45%;
+    position: absolute;
+    top: 27%;
+    left: 15%;
+    overflow: hidden;
+}
+.ruleContent > div >img {
+    width: 100%;
+}
+
+/*挑战榜规则*/
+.ruleContentParent_1{
+
+}
+.rule_close_btn_1{
+    top: 1%;
+    right: 0;
+    width: 13%;
+    z-index: 10;
+}
+.ruleContentParent_bg{
+    width: 90%;
+    height: 95%;
+    position: absolute;
+    left: 5%;
+    top: 5%;
+    border-radius: 25px;
+    background-color: rgba(0,0,0,1);
+}
+.ruleContent_1{
+    width: 80%;
+    height: 90%;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    overflow: hidden;
+}
+.ruleContent_1 > div > img {
+    width: 100%;
+}
+/*排行榜*/
+.popParent_1{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('http://late.latehuiwan.com/lg99/Public/Home/textures/popRes/img/phbBg.jpg');
+}
+.phbContentParent{
+  background:url("http://late.latehuiwan.com/lg99/Public/Home/textures/popRes/img/contentBg2.png") no-repeat;
+}
+.phb_close_btn{
+  top: 10px;
+  left: 500px;
+}
+.phbContent{
+    width: 220px;
+    height: 190px;
+    position: absolute;
+    top: 30%;
+    left: 2%;
+    overflow: hidden;
+    /* border: 1px solid red; */
+    z-index: 100000;
+}
+.phbContent ul{
+    list-style: none;
+    overflow: :auto;
+
+}
+.phb_my {
+    width: 70%;
+    height: 30px;
+    top: 22%;
+    position: relative;
+    font-size: 1.1em;
+    text-align: center;
+    line-height: 30px;
+    color: #2ba9ed;
+    z-index: 99;
+    text-align: center;
+    border: 2px solid #7dd6e4;
+    list-style: initial;
+    border-radius: 20px;
+    left: 13%;
+    font-weight: 700;
+}
+.phb_my>span{
+  width: 100%;
+}
+.phbContent ul li{
+  width: 220px;
+  height: 40px;
+  margin-left: 0px;
+  margin-top: 1px;
+  background-size: 220px 40px;
+  border: 1px solid rgba(0,0,0,0);
+  color: #2ba9ed;
+}
+.phbContent ul li:nth-of-type(1){
+  margin-top: 0px;
+}
+span{
+    display: block;
+    /*border: 1px solid red;*/
+    position: absolute;
+}
+.headImg{
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+}
+.phbContent span:nth-of-type(1){
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-family: "Arial 微软雅黑";
+  font-size: 20px;
+  font-weight: bold;
+}
+.phbContent span:nth-of-type(2){
+  width: 40px;
+  height: 40px;
+  left: 40px;
+  /*padding-top: 8px;*/
+  overflow: hidden;
+}
+.phbContent span:nth-of-type(3){
+  width: 125px;
+  height: 20px;
+  left: 90px;
+  line-height: 20px;
+  overflow: hidden;
+}
+.phbContent span:nth-of-type(4){
+  width: 125px;
+  height: 20px;
+  line-height: 20px;
+  left: 90px;
+  position: static !important;
+  margin-top: 20px;
+  margin-left: 87px;
+  overflow: hidden;
+}
+
+.btn-gravity{
+    color:blue;position: fixed;top:18%;right:10px;width:82px;
+}
+.btn-screenMove{
+    color:blue;position: fixed;top:23%;right:10px;width:82px;
+}
+
+.box-gift{
+    height:100%;
+}
+.box-gift img{
+    width:31%;
+    position: relative;
+    left: 20px;
+    margin-right: 46px;
+    margin-bottom:13px;
+    top:-24%;
+}
+.box-redpacket{
+    width: 100%;
+    height: auto;
+    position: relative;
+    top:-19%;
+}
+.box-redpacket-money{
+    display: inline-block;
+    /* border: 1px solid red; */
+    position: relative;
+    font-size: 20px;
+
+    top: -33%;
+}
+.challenge-success{
+    display: block;
+    /* border: 1px solid red; */
+    position: absolute;
+    top: 5%;
+    left: 30%;
+    color: black;
+}
+.end-page-main {
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: -22%;
+}
